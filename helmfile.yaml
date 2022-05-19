@@ -1,0 +1,20 @@
+repositories:
+- name: oauth2-proxy
+  url: https://oauth2-proxy.github.io/manifests
+
+helmDefaults:
+  createNamespace: false
+  cleanupOnFail: true
+  verify: false
+  timeout: 600
+  wait: true
+
+releases:
+  - name: oauth-proxy
+    namespace: test
+    chart: "oauth2-proxy/oauth2-proxy"
+    installed: false
+    labels:
+      chart: "oauth2-proxy"
+      repo: "oauth2-proxy"
+      subdomain: test-vscode
